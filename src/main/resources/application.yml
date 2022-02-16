@@ -1,3 +1,5 @@
+spring.profiles.active: lba
+
 server:
-  port: 9001
+  port: 9009
   max-http-header-size: 128KB

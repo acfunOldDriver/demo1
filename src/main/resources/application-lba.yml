@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: root
+    password: root
+    driver-class-name: com.mysql
+#spring:
+#    datasource:
+#      primary.:
+#        jdbc-url: jdbc:mysql://39.105.31.95:3306/lba?autoReconnect=true&nullCatalogMeansCurrent=true&failOverReadOnly=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#        username: root
+#        password: root
+#        driver-class-name: com.mysql.jdbc.Driver
+#        initialSize: 2
+#        maxActive: 10
+#        maxIdle: 5
+#        minIdle: 2
+#        testWhileIdle: true
+#        validationQuery: SELECT 1
+#        validationInterval: 30000
+#        validationQueryTimeout: -1
+#        isApp: true

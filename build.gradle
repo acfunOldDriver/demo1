@@ -1,20 +1,44 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'groovy'
+	id 'war'
 }
 
 group = 'com.lba'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+version = '0.0.1'
 
 repositories {
 	mavenCentral()
 }
 
+allprojects {
+
+	group = 'com.lba'
+	version = '0.0.1'
+
+	apply plugin: 'java'
+	apply plugin: 'groovy'
+	apply plugin: 'idea'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter:2.6.3'
+		implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.3'
+		implementation 'org.codehaus.groovy:groovy-all:3.0.8'
+		implementation 'mysql:mysql-connector-java:5.1.24'
+		implementation 'org.springframework.boot:spring-boot-devtools:2.6.3'
+	}
+}
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter:2.6.3'
-	implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'
-	implementation 'org.codehaus.groovy:groovy-all:3.0.8'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat:2.6.3'
+
+	implementation project(":demo-entity")
+	implementation project(":demo-general")
+	implementation project(":demo-util")
 }

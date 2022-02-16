@@ -1,0 +1,6 @@
+rootProject.name = 'demoAll'
+
+include 'demo-entity'
+include 'demo-general'
+include 'demo-util'
+
