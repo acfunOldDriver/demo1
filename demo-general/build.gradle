@@ -1,3 +1,4 @@
 dependencies {
     implementation project(":demo-entity")
+    implementation project(":demo-util")
 }

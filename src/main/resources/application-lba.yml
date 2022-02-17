@@ -1,21 +1,30 @@
 spring:
   datasource:
-    url: root
+    #驱动
+    driver-class-name: com.mysql.jdbc.Driver
+    #地址
+    url: jdbc:mysql://39.105.31.95:3306/lba
+    #用户名
+    username: root
+    #密码
     password: root
-    driver-class-name: com.mysql
-#spring:
-#    datasource:
-#      primary.:
-#        jdbc-url: jdbc:mysql://39.105.31.95:3306/lba?autoReconnect=true&nullCatalogMeansCurrent=true&failOverReadOnly=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-#        username: root
-#        password: root
-#        driver-class-name: com.mysql.jdbc.Driver
-#        initialSize: 2
-#        maxActive: 10
-#        maxIdle: 5
-#        minIdle: 2
-#        testWhileIdle: true
-#        validationQuery: SELECT 1
-#        validationInterval: 30000
-#        validationQueryTimeout: -1
-#        isApp: true
+    #可配置项
+    druid:
+      #初始化时建立物理连接的个数
+      initial-size: 2
+      #最小连接池数量
+      min-idle: 2
+      #最大连接池数量
+      max-active: 5
+      #连接时最大等待时间,ms
+      max-wait: 60000
+      #连接在池中最小生存时间
+      min-evictable-idle-time-millis: 20000
+      #连接在池中最大生存时间
+      max-evictable-idle-time-millis: 300000
+      #监控页面
+      stat-view-servlet:
+        #是否开启监控
+        enabled: true
+        #监控页面访问路径
+        url-pattern: /mysql/*
