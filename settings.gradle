@@ -1,4 +1,4 @@
-rootProject.name = 'demoAll'
+rootProject.name = 'demo-boot'
 
 include 'demo-entity'
 include 'demo-general'
