@@ -8,6 +8,7 @@ group = 'com.lba'
 version = '0.0.1'
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 }
 
@@ -24,13 +25,13 @@ allprojects {
 	}
 
 	dependencies {
-		implementation 'org.springframework.boot:spring-boot-starter:2.6.3'
-		implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'
-		implementation 'org.springframework.boot:spring-boot-devtools:2.6.3'
-		implementation 'org.codehaus.groovy:groovy-all:3.0.8'
-		implementation 'com.alibaba:druid-spring-boot-starter:1.1.23'
-		implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.6.3'
-		implementation 'mysql:mysql-connector-java:5.1.24'
+		implementation 'org.springframework.boot:spring-boot-starter:2.7.0'
+		implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+		implementation 'org.springframework.boot:spring-boot-devtools:2.7.0'
+		implementation 'org.codehaus.groovy:groovy-all:3.0.11'
+		implementation 'com.alibaba:druid-spring-boot-starter:1.2.11'
+		implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.7.0'
+		implementation 'mysql:mysql-connector-java:8.0.29'
 	}
 }
 
