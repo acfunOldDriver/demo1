@@ -1,0 +1,47 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<h1>aaa</h1>
+
+<div id="app">
+    <p>{{ message }}</p>
+    <span v-bind:title="message1">鼠标悬停查看消息</span>
+    <p v-if="seen">现在你看到我了</p>
+    <p>>>>>>>>>>>>>>>>>></p>
+    <ol>
+        <li v-for="t in listTest">
+            {{t.text}}<>{{t.txt}}
+        </li>
+    </ol>
+    <button v-on:click="reverseMessage">反转消息</button>
+    <p>{{ message2 }}</p>
+    <label>
+        <input v-model="message2">
+    </label>
+    <todo-item v-for="t in listTest" v-bind:todo="t" v-bind:key="t.text"></todo-item>
+</div>
+<script>
+    Vue.component('todo-item',{
+        props: ['todo'],
+        template: '<li>{{todo.text}}<>{{todo.txt}}</li>'
+    })
+
+    app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            message1: '页面加载于 ' + new Date().toLocaleString(),
+            seen: true,
+            listTest: [
+                {text:'a',txt:'A'},
+                {text:'b',txt:'B'},
+                {text:'c',txt:'C'}
+            ],
+            message2: ''
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
