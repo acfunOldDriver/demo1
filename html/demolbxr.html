@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" xmlns="http://www.w3.org/1999/html">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<title>demo4</title>
+<h4>demo4</h4>
+<div id="vm">
+    <li v-for="(item, index) in items">
+        {{ parentMessage }} - {{ index }} - {{ item.message }}
+    </li>
+    <ul id="v-for-object" class="demo">
+        <li v-for="(value,key,index) in object">
+            {{ key }} - {{ index }} - {{ value }}
+        </li>
+    </ul>
+    <ul v-for="(item, index) in items">
+        <li v-for="n in 10">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+            {{ n }}
+        </li>
+    </ul>
+</div>
+<script>
+    vm = new Vue({
+        el: '#vm',
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                { message: 'Foo' },
+                { message: 'Bar' }
+            ],
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            }
+        }
+    })
+</script>

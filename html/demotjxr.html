@@ -1,0 +1,54 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" xmlns="http://www.w3.org/1999/html">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<title>demo4</title>
+<h4>demo4</h4>
+<div id="vm">
+    <h1 v-if="isShow">可以看到</h1>
+    <h1 v-else>隐藏了</h1>
+    <template v-if="isShow2">
+        <h1>a</h1>
+        <p>b</p>
+        <p>c</p>
+    </template>
+    <template v-else-if="isShow3">
+        <h1>1</h1>
+        <p>2</p>
+        <p>3</p>
+    </template>
+    <template v-else>
+        <h1>A</h1>
+        <p>B</p>
+        <p>C</p>
+    </template>
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username" key="username-input">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address" key="email-input">
+    </template>
+    <p><button @click="changeLoginType">切换登陆方式</button></p>
+</div>
+<script>
+    vm = new Vue({
+        el: '#vm',
+        data: {
+            isShow : false,
+            isShow2 : true,
+            isShow3 : true,
+            loginType : 'username'
+        },
+        methods: {
+            changeLoginType: function (){
+                if(this.loginType === 'username'){
+                    this.loginType = 'email'
+                } else {
+                    this.loginType = 'username'
+                }
+            }
+        }
+    })
+</script>

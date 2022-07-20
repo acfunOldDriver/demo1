@@ -1,9 +1,27 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" xmlns="http://www.w3.org/1999/html">
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <title>demo2</title>
 <h4>demo2</h4>
 <div id="vm">
     {{a}}
+</div>
+<div id="vm1">
+    <p><span>{{b}}</span></p>
+    <p><span v-once>不变：{{b}}</span></p>
+    <p>Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    <div v-bind:id="dynamicId"></div>
+    <button v-bind:disabled="isButtonDisabled">Button</button>
+</div>
+<div id="vm2">
+    <p><a v-bind:href="url">{{ url }}</a></p>
+    <p><a :href="url">{{ url }}</a></p>
+    <p><a :[key]="url">{{ url }}</a></p>
+    <p><a :[aa]="url">{{ url }}</a></p>
+    <p>**************************</p>
+    <p><a v-on:click="doSomething">点我</a></p>
+    <p><a @click="doSomething">点我</a></p>
+    <p><a @[event]="doSomething">点我</a></p>
 </div>
 <script>
     data = {a : 1}
@@ -11,5 +29,33 @@
     vm = new Vue({
         el: '#vm',
         data: data
+    })
+    vm1 = new Vue({
+        el: '#vm1',
+        data: {
+            b : 2,
+            c : 3,
+            rawHtml : "<span style='color:blue'>this is should be bule.</span>",
+            dynamicId : 'a',
+            isButtonDisabled : true
+        },
+        created: function (){
+            this.b = 3
+            console.log('a is: ' + this.b)
+        }
+    })
+    vm2 = new Vue({
+        el: '#vm2',
+        data: {
+            url : 'https://www.baidu.com',
+            key : 'href',
+            aa : 'href',
+            event : 'click'
+        },
+        methods: {
+            doSomething: function () {
+                console.log('aa')
+            }
+        }
     })
 </script>
