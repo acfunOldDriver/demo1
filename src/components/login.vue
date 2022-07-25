@@ -30,7 +30,9 @@ export default {
   methods: {
     changeMsg:function () {
       this.msg = Math.random()
-      axios.get()
+      this.$axios.get("/hello").then(res =>{
+        console.log(res)
+      })
     }
   }
 }
